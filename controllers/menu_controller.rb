@@ -9,12 +9,13 @@ class MenuController
 
   def main_menu
 
-    puts "Main Menu - #{address_book.entries.count} entries"
+    puts "Main Menu - #{@address_book.entries.count} entries"
     puts "1 - View all entries"
     puts "2 — Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - Exit"
+    puts "6 - View Entry Nummber"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -36,10 +37,16 @@ class MenuController
       system "clear"
       read_csv
       main_menu
+  
     when 5 
       puts "Good-bye!"
 
       exit(0)
+
+    when 6 
+      system "clear"
+      find_entry_number
+      main_menu
 
     else
       system "clear"
@@ -47,6 +54,7 @@ class MenuController
       main_menu
     end
   end
+
 
   def view_all_entries
 
@@ -68,10 +76,10 @@ class MenuController
     name = gets.chomp
     print "Phone number: "
     phone = gets.chomp
-    print = "Email: "
+    print "Email: "
     email = gets.chomp
 
-    @address_book.add_entry(nae, phone, email)
+    @address_book.add_entry(name, phone, email)
 
     system "clear"
     puts "New entry created"
@@ -82,6 +90,23 @@ class MenuController
 
   def read_csv
   end
+
+  def find_entry_number
+    system "clear"
+    puts "New AddressBloc Entry"
+
+    print "Enter index number: "
+    selection = gets.to_i
+
+    @address_book.entries.each_with_index do |get_it, index| 
+      if selection == index
+      puts  "#{get_it}"
+      else
+      puts "please enter valid number"
+      end
+   end
+  end
+    
 
   def entry_submenu(entry)
 
