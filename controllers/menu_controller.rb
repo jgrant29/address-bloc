@@ -37,17 +37,13 @@ class MenuController
       system "clear"
       read_csv
       main_menu
-  
     when 5 
       puts "Good-bye!"
-
       exit(0)
-
     when 6 
       system "clear"
       find_entry_number
       main_menu
-
     else
       system "clear"
       puts "Sorry, that is not a valid input"
@@ -100,9 +96,9 @@ class MenuController
 
     @address_book.entries.each_with_index do |get_it, index| 
       if selection == index
-      puts  "#{get_it}"
+        puts  "#{get_it}"
       else
-      puts "please enter valid number"
+        puts "please enter valid number"
       end
    end
   end
@@ -120,7 +116,6 @@ class MenuController
     case selection
 
     when "n"
-
     when "d"
     when "e"
     when "m"
@@ -132,5 +127,4 @@ class MenuController
       entries_submenu(entry)
     end
   end
-
 end
